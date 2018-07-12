@@ -1,37 +1,92 @@
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-
-    <head>
-
-        <title>Practical Skills Development Barebones Server</title>
-
-        <link rel="shortcut icon" href="/client/favicon.ico" type="image/x-icon">
-
-        <script src="/client/js/jquery-3.3.1.min.js"></script>
-        <script src="/client/js/popper.min.js"></script>
-        <script src="/client/js/bootstrap.min.js"></script>
-        <script src="/client/js/js.cookie.min.js"></script>
-
-        <link href="/client/css/bootstrap.min.css" rel="stylesheet">
-
-    </head>
-
-    <body class="bg-dark">
-
-        <div class="container bg-white">
-
-            <div class="jumbotron text-center">
-                <h1>Practical Skills Development Barebones Server</h1>
-            </div>
-
-            <div class="text-center pb-4">
-                <h3>Congratulations, your server is working!</h3>
-                <img src="/client/img/face.jpg" alt="Awesome Face" />
-            </div>
-
+<!DOCTYPE html>     <!-- Instruction to the web browser about what version of html the page is written in-->
+<html lang="en" xlmns="http://www.w3.org/1999/html">
+<head>
+    <title>Raw HTML</title>
+    <!-- Setting the viewport -->
+    <!-- Using a meta tag to give the browser instructions on how to control the page's dimensions and scaling, 'width=device-width" sets the width of the page to match the screen-width of the device. The 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. The 'shrink-to-fit=no' tells the browser to not automatically zoom/shrink to the page's content -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="/client/css/bootstrap.min.css">
+    <script src="/client/js/bootstrap.min.js"></script>
+    <script src="/client/js/jquery-3.3.1.slim.min.js"></script>
+</head>
+<body class="bg-dark" onload="setDefaultDate()">
+<div class="container bg-white">
+    <div class="jumbotron text-center">
+        <h1>Money logger</h1>
+    </div>
+    <div class="mx-3 my-4" id="transactions">
+        <div class="alert-warning">Transactions will appear here!</div>
+    </div>
+    <!-- Transaction input group -->
+    <div class="row">
+        <div class="container mx-3">
+            <form class="needs-validation">
+                <div class="form-group form-row">
+                    <!-- Amount input-->
+                    <div class="col-2">
+                        <label class="w-100">Amount:
+                            <input class="form-control" id="amount" name="amount" type="number" placeholder="0.00" min="0" step="0.01">
+                        </label>
+                    </div>
+                    <!-- Category input -->
+                    <div class="col-4">
+                        <label class="w-100">Category:
+                            <select class="form-control" id="category" name="category">
+                                <option value="food">Food</option>
+                                <option value="house">House</option>
+                                <option value="car">Car</option>
+                                <option value="eating_out">Eating out</option>
+                                <option value="transport">Transport</option>
+                                <option value="toiletry">Toiletry</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="sports">Sports</option>
+                                <option value="taxi">Taxi</option>
+                                <option value="health">Health</option>
+                                <option value="clothes">Clothes</option>
+                                <option value="communications">Communications</option>
+                                <option value="gifts">Gifts</option>
+                                <option value="pets">Pets</option>
+                                <option value="bills">Bills</option>
+                            </select>
+                        </label>
+                    </div>
+                    <!-- Date input -->
+                    <div class="col-2">
+                        <label class="w-100">Date:
+                            <input class="form-control" id="date" name="date" type="date">
+                        </label>
+                    </div>
+                    <!-- Add transaction button -->
+                    <div class="col-2">
+                        <button class="btn btn-primary mt-4" name="submit" type="submit">Add transaction</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-    </body>
-
+    </div>
+    <!-- Category input group -->
+    <div class="row">
+        <div class="container mx-3">
+            <form class="needs-validation">
+                <div class="form-group form-row">
+                    <!-- Category input -->
+                    <div class="col-3">
+                        <label class="w-100">Category:
+                            <input class="form-control" id="category" name="category" type="text" placeholder="Category" autocomplete="off" required>
+                        </label>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-success mt-4" name="submit" type="submit">Add category</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function setDefaultDate () {
+        document.getElementById('date').valueAsDate = new Date();
+    }
+</script>
+</body>
 </html>

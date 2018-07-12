@@ -15,11 +15,11 @@ public class TransactionController {
     @Path("new")
     @Produces(MediaType.TEXT_PLAIN)
     public String transactionHandler (@FormParam("transactionAmount") String transactionAmount,
-                                      @FormParam("transactionCategory") String transactionCategory,
+                                      @FormParam("transactionCategory[]") String transactionCategory,
                                       @FormParam("transactionDate") String transactionDate) {
 
         Console.log("Transaction: £" + transactionAmount + " , " + transactionCategory + " , " + transactionDate);
-        return "Transaction of £" + transactionAmount + " added to the " + transactionCategory + " on " + transactionDate + ".";
+        return "Transaction of " + transactionAmount + " pounds added to the " + transactionCategory + " category on " + transactionDate + ".";
 
     }
 

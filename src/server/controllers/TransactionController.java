@@ -1,5 +1,6 @@
 package server.controllers;
 
+import org.json.simple.JSONArray;
 import server.models.Transaction;
 
 import javax.ws.rs.FormParam;
@@ -24,15 +25,15 @@ public class TransactionController {
 
         Transaction.transactions.add(new Transaction(transactionId, transactionAmount, transactionCategory, transactionDate));
 
-        String transactionSummary = "";
+        JSONArray transactionList = new JSONArray();
 
         for (Transaction transaction : Transaction.transactions) {
 
-            transactionSummary += transaction.toString() + "\n";
+            transactionList.add(transaction.toJSON());
 
         }
 
-        return transactionSummary;
+        return transactionList.toString();
 
     }
 

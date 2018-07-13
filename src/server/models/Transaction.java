@@ -44,7 +44,7 @@ public class Transaction {
 
     }
 
-    // Function that converts all of the transaction's elements into a JSONObject with all the correct attributes and value pairs
+    // Function that converts all of the transaction's elements into a JSONObject with all the correct attributes as key and value pairs
     @SuppressWarnings("unchecked")
     public JSONObject toJSON () {
 

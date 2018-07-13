@@ -24,7 +24,15 @@ public class TransactionController {
 
         Transaction.transactions.add(new Transaction(transactionId, transactionAmount, transactionCategory, transactionDate));
 
-        return "TransactionID: " + transactionId + " | TransactionAmount: " + transactionAmount + " | TransactionCategory: " + transactionCategory + " | TransactionDate: " + transactionDate;
+        String transactionSummary = "";
+
+        for (Transaction transaction : Transaction.transactions) {
+
+            transactionSummary += transaction.toString() + "\n";
+
+        }
+
+        return transactionSummary;
 
     }
 

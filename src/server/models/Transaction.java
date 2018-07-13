@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Transaction {
 
-    private int transactionID;
+    private int transactionId;
     private float transactionAmount;
     private String transactionCategory;
     private String transactionDate;
@@ -14,9 +14,9 @@ public class Transaction {
     public static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
     // Constructor
-    public Transaction (int transactionID, float transactionAmount, String transactionCategory, String transactionDate) {
+    public Transaction (int transactionId, float transactionAmount, String transactionCategory, String transactionDate) {
 
-        this.transactionID = transactionID;
+        this.transactionId = transactionId;
         this.transactionAmount = transactionAmount;
         this.transactionCategory = transactionCategory;
         this.transactionDate = transactionDate;
@@ -30,9 +30,9 @@ public class Transaction {
 
         for (Transaction transaction : transactions) {
 
-            if (transaction.getTransactionID() > id) {
+            if (transaction.getTransactionId() > id) {
 
-                id = transaction.getTransactionID();
+                id = transaction.getTransactionId();
 
             }
 
@@ -46,7 +46,7 @@ public class Transaction {
     public String toString () {
 
         return "Transaction{" +
-                "transactionID=" + transactionID +
+                "transactionId=" + transactionId +
                 ", transactionAmount=" + transactionAmount +
                 ", transactionCategory='" + transactionCategory + '\'' +
                 ", transactionDate='" + transactionDate + '\'' +
@@ -54,9 +54,9 @@ public class Transaction {
 
     }
 
-    public int getTransactionID () { return transactionID; }
+    public int getTransactionId () { return transactionId; }
 
-    public void setTransactionID (int transactionID) { this.transactionID = transactionID; }
+    public void setTransactionId (int transactionId) { this.transactionId = transactionId; }
 
     public float getTransactionAmount () { return transactionAmount; }
 

@@ -1,5 +1,7 @@
 package server.models;
 
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 
 public class Transaction {
@@ -42,6 +44,22 @@ public class Transaction {
 
     }
 
+    // Function that converts all of the transaction's elements into a JSONObject with all the correct attributes and value pairs
+    @SuppressWarnings("unchecked")
+    public JSONObject toJSON () {
+
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put("id", getTransactionId());
+        jsonObject.put("amount", getTransactionAmount());
+        jsonObject.put("category", getTransactionCategory());
+        jsonObject.put("date", getTransactionDate());
+
+        return jsonObject;
+
+    }
+
+    // Function that creates a string containing all of the transaction's elements
     @Override
     public String toString () {
 

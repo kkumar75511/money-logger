@@ -16,7 +16,7 @@ public class TransactionController {
     @Path("new")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public String transactionHandler (@FormParam("transactionAmount") float transactionAmount,
+    public String newTransaction (@FormParam("transactionAmount") float transactionAmount,
                                       @FormParam("transactionCategory[]") String transactionCategory,
                                       @FormParam("transactionDate") String transactionDate) {
 

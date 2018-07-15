@@ -1,0 +1,13 @@
+#transactions {
+    width: auto;
+    height: auto;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.card {
+    float: left;
+    display: inline;
+    margin: 10px;
+    width: 23%;
+}

@@ -1,10 +1,15 @@
 function pageLoad () {
+
     setDefaultDate();
     loadMessages();
+    resetForm();
+
 }
 
 function setDefaultDate () {
+
     document.getElementById('date').valueAsDate = new Date();
+
 }
 
 function loadMessages () {
@@ -55,5 +60,26 @@ function renderMessage (transaction) {
     return transactionDiv;
 
     // relook lesson 5 slide 12
+
+}
+
+function resetForm () {
+
+    const form = $('#transactionForm');
+
+    form.submit(event => {
+
+        event.preventDefault();
+
+        $.ajax ({
+
+            url: '/transaction/new',
+            type: 'POST',
+            data: form.serialize(),
+            success: loadMessages()
+
+        });
+
+    });
 
 }

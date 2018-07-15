@@ -9,8 +9,6 @@ function setDefaultDate () {
 
 function loadMessages () {
 
-    let transactionsHTML = '';
-
     $.ajax ({
 
         url: '/transaction/list',
@@ -36,5 +34,26 @@ function loadMessages () {
         }
 
     });
+
+}
+
+function renderMessage (transaction) {
+
+    const transactionDiv =
+        $(`<div class="card">` +
+            `<div class="card-body">` +
+                `<h5 class="card-title transactionAmount">Amount: </h5>` +
+                `<h6 class="card-subtitle transactionCategory">Category: </h6>` +
+                `<p class="card-text transactionDateAndID"></p>` +
+            `</div>` +
+        `</div>`);
+
+    transactionDiv.find('.transactionAmount').text('Amount: ' + transaction.amount);
+    transactionDiv.find('.transactionCategory').text('Category: ' + transaction.category);
+    transactionDiv.find('.transactionDateAndID').text('Date: ' + transaction.date + "<br/>TransactionID: " + transaction.id);
+
+    return transactionDiv;
+
+    // relook lesson 5 slide 12
 
 }

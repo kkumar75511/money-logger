@@ -3,11 +3,19 @@
     height: auto;
     border-style: solid;
     overflow: hidden;
+    /*padding: 10px;*/
 }
 
-.card {
+#transactions > .card {
     float: left;
+    /*margin: 10px;*/
+    width: calc(100% / 4);
     display: inline;
-    margin: 10px;
-    width: 23%;
 }
+
+/*.card {*/
+    /*float: left;*/
+    /*display: inline;*/
+    /*margin: 10px;*/
+    /*width: 23%;*/
+/*}*/

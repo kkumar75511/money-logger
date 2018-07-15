@@ -3,11 +3,7 @@ package server.controllers;
 import org.json.simple.JSONArray;
 import server.models.Transaction;
 
-import javax.ws.rs.FormParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.Consumes;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("transaction/")
@@ -24,6 +20,15 @@ public class TransactionController {
         int transactionId = Transaction.nextId();
 
         Transaction.transactions.add(new Transaction(transactionId, transactionAmount, transactionCategory, transactionDate));
+
+        return getTransactionList();
+
+    }
+
+    @GET
+    @Path("list")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listTransactions () {
 
         return getTransactionList();
 

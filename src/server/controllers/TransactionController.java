@@ -25,6 +25,13 @@ public class TransactionController {
 
         Transaction.transactions.add(new Transaction(transactionId, transactionAmount, transactionCategory, transactionDate));
 
+        return getTransactionList();
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private String getTransactionList () {
+
         JSONArray transactionList = new JSONArray();
 
         for (Transaction transaction : Transaction.transactions) {

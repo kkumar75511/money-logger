@@ -24,7 +24,7 @@ function loadMessages () {
 
             for (let transaction of transactionList) {
 
-                $('#transactions').append(renderMessage(transaction));
+                $('#transactions').append(renderTransaction(transaction));
 
             }
 
@@ -63,7 +63,7 @@ function loadMessages () {
 //
 // }
 
-function renderMessage (transaction) {
+function renderTransaction (transaction) {
 
     return `<div class="card">` +
                 `<div class="card-body">` +

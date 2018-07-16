@@ -42,26 +42,46 @@ function loadMessages () {
 
 }
 
+// function renderMessage (transaction) {
+//
+//     const transactionDiv =
+//         $(`<div class="card">` +
+//             `<div class="card-body">` +
+//                 `<h5 class="card-title transactionAmount">Amount: </h5>` +
+//                 `<h6 class="card-subtitle transactionCategory">Category: </h6>` +
+//                 `<p class="card-text transactionDateAndID"></p>` +
+//             `</div>` +
+//         `</div>`);
+//
+//     transactionDiv.find('.transactionAmount').text('Amount: ' + transaction.amount);
+//     transactionDiv.find('.transactionCategory').text('Category: ' + transaction.category);
+//     transactionDiv.find('.transactionDateAndID').text('Date: ' + transaction.date + "<br/>TransactionID: " + transaction.id);
+//
+//     return transactionDiv;
+//
+//     // relook lesson 5 slide 12
+//
+// }
+
 function renderMessage (transaction) {
 
-    const transactionDiv =
-        $(`<div class="card">` +
-            `<div class="card-body">` +
-                `<h5 class="card-title transactionAmount">Amount: </h5>` +
-                `<h6 class="card-subtitle transactionCategory">Category: </h6>` +
-                `<p class="card-text transactionDateAndID"></p>` +
-            `</div>` +
-        `</div>`);
-
-    transactionDiv.find('.transactionAmount').text('Amount: ' + transaction.amount);
-    transactionDiv.find('.transactionCategory').text('Category: ' + transaction.category);
-    transactionDiv.find('.transactionDateAndID').text('Date: ' + transaction.date + "<br/>TransactionID: " + transaction.id);
-
-    return transactionDiv;
-
-    // relook lesson 5 slide 12
+    return `<div class="card">` +
+                `<div class="card-body">` +
+                    `<h5 class="card-title">Amount: ${transaction.amount}</h5>` +
+                    `<h6 class="card-subtitle">Category: ${transaction.category}</h6>` +
+                    `<p class="card-text">Date: ${transaction.date}<br/>TransactionID: ${transaction.id}</p>` +
+                `</div>` +
+            `</div>`;
 
 }
+
+// <div class="card">
+//     <div class="card-body">
+//     <h5 class="card-title">Amount: </h5>
+// <h6 class="card-subtitle mb-2 text-muted">Category: </h6>
+// <p class="card-text">Date: <br />TransactionID: </p>
+// </div>
+// </div>
 
 function resetForm () {
 

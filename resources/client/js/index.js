@@ -22,9 +22,17 @@ function loadMessages () {
 
             $('#transactions').empty();
 
-            for (let transaction of transactionList) {
+            if (transactionList.hasOwnProperty('error')) {
 
-                $('#transactions').append(renderTransaction(transaction));
+                alert(transactionList.error);
+
+            } else {
+
+                for (let transaction of transactionList) {
+
+                    $('#transactions').append(renderTransaction(transaction));
+
+                }
 
             }
 

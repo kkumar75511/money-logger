@@ -20,11 +20,15 @@ public class TransactionController {
                                       @FormParam("transactionCategory[]") String transactionCategory,
                                       @FormParam("transactionDate") String transactionDate) {
 
+        Console.log("/transaction/new - Amount " + transactionAmount);
+
+        TransactionService.selectAllInto(Transaction.transactions);
+
         int transactionId = Transaction.nextId();
 
-        Transaction.transactions.add(new Transaction(transactionId, transactionAmount, transactionCategory, transactionDate));
+        Transaction newTransaction = new Transaction(transactionId, transactionAmount, transactionCategory, transactionDate);
 
-        return getTransactionList();
+        return TransactionService.insert(newTransaction);
 
     }
 

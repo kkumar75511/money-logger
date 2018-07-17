@@ -95,7 +95,24 @@ function resetForm () {
 
     const form = $('#transactionForm');
 
-    form.submit(event => {
+    form.unbind("submit");
+
+    // form.submit(event => {
+    //
+    //     event.preventDefault();
+    //
+    //     $.ajax ({
+    //
+    //         url: '/transaction/new',
+    //         type: 'POST',
+    //         data: form.serialize(),
+    //         success: loadMessages()
+    //
+    //     });
+    //
+    // });
+
+    form.on("submit", event => {
 
         event.preventDefault();
 
@@ -104,10 +121,22 @@ function resetForm () {
             url: '/transaction/new',
             type: 'POST',
             data: form.serialize(),
-            success: loadMessages()
+            success: response => {
 
-        });
+                if (response === 'OK') {
 
-    });
+                    pageLoad();
+
+                } else {
+
+                    alert(response);
+
+                }
+
+            }
+
+        })
+
+    })
 
 }

@@ -22,7 +22,7 @@ public class TransactionService {
             );
 
             if (statement != null) {
-                
+
                 ResultSet results = statement.executeQuery();
 
                 if (results != null) {

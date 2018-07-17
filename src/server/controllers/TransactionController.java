@@ -49,8 +49,6 @@ public class TransactionController {
 
         }
 
-        return getTransactionList();
-
     }
 
     @SuppressWarnings("unchecked")

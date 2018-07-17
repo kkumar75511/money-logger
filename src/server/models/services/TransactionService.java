@@ -50,4 +50,31 @@ public class TransactionService {
 
     }
 
+    public static String insert (Transaction itemToSave) {
+
+        try {
+
+            PreparedStatement statement = DatabaseConnection.newStatement(
+                    "INSERT INTO Transactions (TransactionID, Amount, Category, Date) VALUES (?, ?, ?, ?)"
+            );
+
+            statement.setInt(1, itemToSave.getTransactionId());
+            statement.setFloat(2, itemToSave.getTransactionAmount());
+            statement.setString(3, itemToSave.getTransactionCategory());
+            statement.setString(4, itemToSave.getTransactionDate());
+
+            statement.executeUpdate();
+            return "OK";
+
+        } catch (SQLException resultsException) {
+
+            String error = "Database error - can't insert into 'Transactions' table: " + resultsException.getMessage();
+
+            Console.log(error);
+            return error;
+
+        }
+
+    }
+
 }
